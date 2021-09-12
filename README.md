@@ -47,5 +47,5 @@ Follow the instructions in `Navigation.ipynb` to get started with training the a
 
 |description \ arquitecture |DQN    |Double DQN|Prioritized experience replay|Dueling DQN        |Rainbow|Rainbow + Flashback DQN|
 |---------------------------|-------|----------|-----------------------------|-------------------|-------|-----------------------|
-|100-episode score          |14.43  |          |                             |                   |       |                       |
-|Total episodes             |1250   |          |                             |                   |       |                       |
+|100-episode score          |14.43  |15.13     |                             |                   |       |                       |
+|Total episodes             |1250   |1240      |                             |                   |       |                       |
