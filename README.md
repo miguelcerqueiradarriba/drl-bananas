@@ -20,9 +20,29 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
+### Pre requirements
+We'll need Anaconda to be installed: https://www.anaconda.com/
+
 ### Dependency installation
 
-TODO
+1. Create and activate a new environment:
+```
+conda create --name drlnd python=3.6
+source activate drlnd
+```
+
+2. We will need to install the requirements:
+```pip install -r requirements.txt```
+
+3. Then, we should install pytorch manually:
+```pip install torch==1.9.0+cu102 -f https://download.pytorch.org/whl/torch_stable.html```
+   
+4. Finally, we will create a kernel for Notebook:
+```
+python -m ipykernel install --user --name drlnd --display-name "drlnd"
+```
+
+5. Remember to change to this kernel in notebook (Kernel->Change kernel->drlnd)
 
 ### Getting Started
 
@@ -41,11 +61,3 @@ TODO
 ### Instructions
 
 Follow the instructions in `Navigation.ipynb` to get started with training the agent!
-
-
-# Table of experiments
-
-|description \ arquitecture |DQN    |Double DQN|Prioritized experience replay|Dueling DQN        |Rainbow|Rainbow + Flashback DQN|
-|---------------------------|-------|----------|-----------------------------|-------------------|-------|-----------------------|
-|100-episode score          |14.43  |15.13     |                             |                   |       |                       |
-|Total episodes             |1250   |1240      |                             |                   |       |                       |
