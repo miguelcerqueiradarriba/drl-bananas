@@ -41,6 +41,19 @@ loss.backward()
 self.optimizer.step()
 ```
 
+For this agent, I used the followed hyperparameters:
+- Replay buffer size: 1e5
+- Minibatch size: 64
+- Discount factor (gamma): 0.99 
+- Soft update of target parameters (TAU): 1e-3
+- Learning rate: 5e-4
+- Target update frequency: 4
+- Number of episodes: 2000
+- Steps for each episode: 1000
+- Epsilon start: 1
+- Epsilon end: 0.01
+- Epsilon decay: 0.995
+
 This results in one of the fastest agent to achieve a score of 13, in a bit more than 500 episodes:
 
 ```
@@ -209,6 +222,19 @@ loss.backward()
 self.optimizer.step()
 ```
 
+For this agent, I used the followed hyperparameters:
+- Replay buffer size: 1e5
+- Minibatch size: 64
+- Discount factor (gamma): 0.99 
+- Soft update of target parameters (TAU): 1e-3
+- Learning rate: 5e-4
+- Target update frequency: 4
+- Number of episodes: 2000
+- Steps for each episode: 1000
+- Epsilon start: 1
+- Epsilon end: 0.01
+- Epsilon decay: 0.995
+
 In the process of learning, we won't see a better speed on reach a score of 13, lasting a bit more than 500 episodes (like vanilla)
 
 ```
@@ -374,6 +400,19 @@ indexes = np.random.choice(len(self.memory), self.batch_size, p=importance_sampl
 experiences = [self.memory[e] for e in indexes]
 ```
 
+For this agent, I used the followed hyperparameters:
+- Replay buffer size: 1e5
+- Minibatch size: 64
+- Discount factor (gamma): 0.99 
+- Soft update of target parameters (TAU): 1e-3
+- Learning rate: 5e-4
+- Target update frequency: 4
+- Number of episodes: 2000
+- Steps for each episode: 1000
+- Epsilon start: 1
+- Epsilon end: 0.01
+- Epsilon decay: 0.995
+
 The process of learning is considerably slower, lasting more than 900 episodes to get a score of 13:
 ```
 Episode 100	Average Score: 0.48
@@ -512,6 +551,24 @@ The performance of this algorithm is amazing. A mean of 17.08! The stuck situati
 
 Not all the actions are relevant in certain moments. For example, you can't walk while sleeping, so we don't need to know the "walk" action values while in this state. So this is what this algorithm tries to solve; it separates the model in two estimators, to learn which actions are valuable or not. See ```dueling_dqn_model.py``` to understand how the model is split.
 
+Here we use a modified network model, which are composed by 3 neural networks:
+- 1 feature network, with 2 fully connected layers (37 input, 1850 output), normalized by a ReLU function
+- 1 value network, with 2 fully connected layers (1850 input, 1 output), normalized by a ReLU function
+- 1 advantage network, with 2 fully connected layers (1850 input, 4 output), normalized by a ReLU function
+
+For this agent, I used the followed hyperparameters:
+- Replay buffer size: 1e5
+- Minibatch size: 64
+- Discount factor (gamma): 0.99 
+- Soft update of target parameters (TAU): 1e-3
+- Learning rate: 5e-4
+- Target update frequency: 4
+- Number of episodes: 2000
+- Steps for each episode: 1000
+- Epsilon start: 1
+- Epsilon end: 0.01
+- Epsilon decay: 0.995
+
 The process of learning is quite slow in this environment, because is this case this algorithm isn't a clearly difference. However, it could help a lot in environments where not all actions are relevant all the time. The agent lasts more than 800 episodes to achieve a score of 13:
 
 ```
@@ -647,8 +704,22 @@ Score: 13.56
 
 
 ### Rainbow
+In this algorithm, we merge all the algorithms saw previously!
 
-In this algorithm, we merge all the algorithms saw previously! Let's see the performance.
+For this agent, I used the followed hyperparameters:
+- Replay buffer size: 1e5
+- Minibatch size: 64
+- Discount factor (gamma): 0.99 
+- Soft update of target parameters (TAU): 1e-3
+- Learning rate: 5e-4
+- Target update frequency: 4
+- Number of episodes: 2000
+- Steps for each episode: 1000
+- Epsilon start: 1
+- Epsilon end: 0.01
+- Epsilon decay: 0.995
+
+Let's see the performance.
 ```
 Starting training with all-mixed-strategies agent (Rainbow): 
 Episode 100	Average Score: 0.60
